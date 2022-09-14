@@ -8,18 +8,21 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "UART/uart.h"
+#include "XMEM/xmem.h"
+#include "ADC/adc.h"
+#include "Tests/sram_test_cr.h"
 
 int main(void)
 {
     USART_Init(MYUBRR); //Initializing UART
-
-	char myChar;
+	printf("Initializing");
+	xmem_init();	//Initializing Memory
 	while (1) 
     {
-		//myChar = USART_Receive();
-		//USART_Transmit(myChar+1);
-
-		printf("Hello world\n");
+		SRAM_test();	//Testing memory
+		//volatile char *ext_mem;
+		//uint8_t ret_val = ext_mem[0x1400];
+		//adc_read(1);
 		_delay_ms(500);
     }
 }
