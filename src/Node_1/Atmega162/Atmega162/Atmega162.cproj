@@ -151,6 +151,12 @@
     <Compile Include="ADC\adc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Joystick\joystick.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Joystick\joystick.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
@@ -175,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ADC\" />
+    <Folder Include="Joystick" />
     <Folder Include="Tests" />
     <Folder Include="XMEM" />
     <Folder Include="UART\" />

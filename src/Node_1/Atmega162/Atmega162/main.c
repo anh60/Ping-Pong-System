@@ -19,10 +19,16 @@ int main(void)
 	xmem_init();	//Initializing Memory
 	while (1) 
     {
-		SRAM_test();	//Testing memory
+		//SRAM_test();	//Testing memory
 		//volatile char *ext_mem;
 		//uint8_t ret_val = ext_mem[0x1400];
-		//adc_read(1);
+		int16_t X = get_X_pos();
+		int16_t Y = get_Y_pos();
+		printf("X = %d\n\r", X);
+		printf("Y = %d\n\r", Y);
+		
+		int16_t angle = get_angle();
+		printf("Angle = %d\n\r", angle);
 		_delay_ms(500);
     }
 }

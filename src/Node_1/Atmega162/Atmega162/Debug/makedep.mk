@@ -4,6 +4,8 @@
 
 ADC\adc.c
 
+Joystick\joystick.c
+
 main.c
 
 Tests\sram_test_cr.c

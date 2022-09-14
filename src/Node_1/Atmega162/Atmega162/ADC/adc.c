@@ -16,10 +16,22 @@ void adc_init (void){
 }
 
 uint8_t adc_read(uint8_t channel){
-		volatile char *ext_mem = (char *) BASE_ADDRESS_ADC;
-		ext_mem[0x0000]= 0x00;	//Write dummy data to trigger WR signal
-		_delay_us(4);
-		
-		uint8_t ret_val = ext_mem[0x0000];
-		printf("ADC: %d\n\r", ret_val);
+		if (channel > 3 && channel < 0) {
+			printf("ERROR: Channel must be between 0 and 3");
+			return 0;
+		}
+		volatile char *ext_mem_adc = (char *) BASE_ADDRESS_ADC;
+		ext_mem_adc[0x0000]= 0x00;	//Write dummy data to trigger WR signal
+		_delay_us(15);				//Delay to match timing graph
+		volatile uint8_t ret_val[4];
+		ret_val[0] = ext_mem_adc[0x0000];
+		ret_val[1] = ext_mem_adc[0x0000];
+		ret_val[2] = ext_mem_adc[0x0000];
+		ret_val[3] = ext_mem_adc[0x0000];
+		return ret_val[channel];
 }
+
+void adc_calibrate(){
+	printf("Calibrating ADC\n\r");
+	
+};
