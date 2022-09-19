@@ -12,7 +12,8 @@
 #define BASE_ADDRESS_ADC 0x1400;
 
 void adc_init (void){
-	
+	MCUCR |= (1 << SRE );  // enable XMEM
+	SFIOR |= (1 << XMM2 ); // mask unused bits (PC7-PC4 used for JTAG)	
 }
 
 uint8_t adc_read(uint8_t channel){
