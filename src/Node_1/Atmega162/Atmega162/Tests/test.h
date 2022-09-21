@@ -1,8 +1,8 @@
 /*
- * sram_test_cr.h
+ * test.h
  *
  * Created: 07/09/2022 5:01:50 pm
- *  Author: danie
+ *  Author: Andreas, Daniel and Marcus
  */ 
 
 
@@ -10,6 +10,7 @@
 #define SRAM_TEST_CR_H_
 
 void SRAM_test(void);
+void joystick_test(void);
 
 
 

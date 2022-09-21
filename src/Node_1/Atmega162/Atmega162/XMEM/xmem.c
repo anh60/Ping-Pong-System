@@ -2,7 +2,7 @@
  * xmem.c
  *
  * Created: 9/7/2022 11:32:10 AM
- *  Author: 
+ *  Author: Andreas, Daniel and Marcus
  */ 
 
 #include "xmem.h"

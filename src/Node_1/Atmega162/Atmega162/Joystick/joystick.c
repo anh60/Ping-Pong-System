@@ -2,9 +2,9 @@
  * joystick.c
  *
  * Created: 14/09/2022 4:21:41 pm
- *  Author: danie
+ *  Author: Andreas, Daniel and Marcus
  */ 
-
+#include <stdlib.h>
 #include "joystick.h"
 #include "../ADC/adc.h"
 #define  PI 3.1415
@@ -13,9 +13,10 @@
 
 int16_t get_X_pos(void){
 	volatile uint8_t X_positive;
-	volatile uint16_t sum=0;
+	volatile uint16_t sum;
+	sum = 0;
 	for (int i=0; i<TH ;i++){
-		sum += adc_read(1);
+		sum += adc_read(0);
 	}
 	X_positive = sum /TH;
 	volatile double X_pos = X_positive - 160;
@@ -28,9 +29,10 @@ int16_t get_X_pos(void){
 
 int16_t get_Y_pos(void){
 	volatile uint8_t Y_positive;
-	volatile uint16_t sum=0;
+	volatile uint16_t sum;
+	sum = 0;
 	for (int i=0; i<TH ;i++){
-		sum += adc_read(0);
+		sum += adc_read(1);
 	}
 	Y_positive = sum /TH;
 	volatile double Y_pos = Y_positive - 159;
@@ -72,4 +74,31 @@ int16_t get_slider_r(void){
 
 int16_t get_slider_l(void){
 	return get_slider(0);
+}
+
+void init_buttons(void){
+	DDRB &= ~(1 << PINB1);
+	DDRB &= ~(1 << PINB2);
+	DDRB &= ~(1 << PINB3);
+}
+
+uint8_t read_PB(uint8_t PIN){
+	return (PINB & (1 << PIN)) >> PIN;
+}
+
+uint8_t read_js_button(void){
+	uint8_t value = read_PB(PINB1);
+	//Button is pulled up on open state.
+	if (value == 0) return 1;
+	else return 0;
+}
+
+uint8_t read_touch_button_r(void){
+	//Button is pulled down on open state.
+	return read_PB(PINB2);
+}
+
+uint8_t read_touch_button_l(void){
+	//Button is pulled down on open state.
+	return read_PB(PINB3);
 }

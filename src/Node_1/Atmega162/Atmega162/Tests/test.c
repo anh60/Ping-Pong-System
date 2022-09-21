@@ -1,6 +1,10 @@
 #include <stdlib.h>
 #include <avr/io.h>
 
+#include "../Joystick/joystick.h"
+
+//Taken from Blackboard
+//Test SRAM
 void SRAM_test(void)
 {
 	volatile char *ext_ram = (char *) 0x1800; // Start address for the SRAM
@@ -45,4 +49,27 @@ void SRAM_test(void)
 	printf("SRAM test completed \r\n");
 	printf("WRITE: total: %4d, success: %4d, errors: %4d\r\n", write_errors+write_success, write_success, write_errors);
 	printf("READ: total: %4d, success: %4d, errors: %4d\r\n", retrieval_errors+retrieval_success, retrieval_success, retrieval_errors);
+	printf("END...\n\r\n\r");
+}
+
+//Test joystick, sliders and buttons on USB board
+void joystick_test(void){
+		int16_t X = get_X_pos();
+		int16_t Y = get_Y_pos();
+		int16_t slider_r = get_slider_r();
+		int16_t slider_l = get_slider_l();
+		joystick_dir direction = get_dir();
+		printf("X = %d\n\r", X);
+		printf("Y = %d\n\r", Y);
+		printf("DIR =%d\n\r", direction);
+		printf("Slider RIGHT = %d\n\r", slider_r);
+		printf("Slider LEFT = %d\n\r", slider_l);
+		
+		uint8_t button = read_js_button();
+		uint8_t button_r = read_touch_button_r();
+		uint8_t button_l = read_touch_button_l();
+		printf("Joystick Button = %d\n\r",button);
+		printf("Touch Button Right= %d\n\r",button_r);
+		printf("Touch Button Left= %d\n\r",button_l);
+		printf("\n\r");
 }

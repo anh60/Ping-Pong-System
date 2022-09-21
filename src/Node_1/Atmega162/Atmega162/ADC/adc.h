@@ -2,7 +2,7 @@
  * adc.h
  *
  * Created: 14/09/2022 12:17:39 pm
- *  Author: danie
+ *  Author: Andreas, Daniel and Marcus
  */ 
 
 

@@ -8,7 +8,9 @@ Joystick\joystick.c
 
 main.c
 
-Tests\sram_test_cr.c
+OLED\oled.c
+
+Tests\test.c
 
 UART\uart.c
 

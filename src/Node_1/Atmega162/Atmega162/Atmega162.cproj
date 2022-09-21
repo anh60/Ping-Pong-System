@@ -160,10 +160,16 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Tests\sram_test_cr.c">
+    <Compile Include="OLED\oled.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Tests\sram_test_cr.h">
+    <Compile Include="OLED\oled.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Tests\test.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Tests\test.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="UART\uart.c">
@@ -182,6 +188,7 @@
   <ItemGroup>
     <Folder Include="ADC\" />
     <Folder Include="Joystick" />
+    <Folder Include="OLED" />
     <Folder Include="Tests" />
     <Folder Include="XMEM" />
     <Folder Include="UART\" />
