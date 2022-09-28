@@ -160,6 +160,9 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="OLED\fonts.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="OLED\oled.c">
       <SubType>compile</SubType>
     </Compile>

@@ -16,6 +16,10 @@ void OLED_goto_page(uint8_t line);
 void OLED_goto_col(uint8_t col);
 void OLED_reset(void);
 void OLED_all_on(void);
+void OLED_clear_page(uint8_t page);
+void OLED_get_char_from_font(char character);
+void OLED_print_string(void);
+void OLED_print(char*);
 void OLED_test(void);
 
 

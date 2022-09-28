@@ -32,9 +32,10 @@ int main(void)
 		//SRAM_test();	//Testing memory
 		//joystick_test();
 		OLED_reset();
-		_delay_ms(1000);
-		//OLED_all_on();
-		OLED_test();
+		OLED_print_string();
+		_delay_ms(5000);
+		//OLED_clear_page(4);
+		//OLED_test();
 		_delay_ms(5000);
     }
 }
