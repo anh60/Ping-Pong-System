@@ -13,30 +13,31 @@
 #include "Joystick/joystick.h"
 #include "Tests/test.h"
 #include "OLED/oled.h"
+#define BASE_ADDRESS_OLED_CMD 0x1000
+
 
 int main(void)
 {
-    printf("Initializing...\n\r");
+
 	USART_Init(MYUBRR); //Initializing UART
+	printf("Initializing...\n\r");
 	xmem_init();	//Initializing Memory
 	adc_init();		//Initializing ADC
 	init_buttons();	//Init PB buttons
-	init_oled();
+	OLED_init();
 	
+
 	while (1) 
     {
 		//SRAM_test();	//Testing memory
 		//joystick_test();
-		//volatile char *value = (char *) 0x0000;
-		//value[0x1800] = 0x0A;
-		//value[0x1400] = 0x00;
-		//value[0x1000] = 0x00;
-		write_oled_cmd(0xa5); // display on
-		//OLED_print_arrow();
-		//uint8_t ret_val = value[0x1800]; 
-		//printf("%d\n\r",ret_val);
-
-		_delay_ms(500);
+		OLED_reset();
+		_delay_ms(1000);
+		//OLED_all_on();
+		OLED_test();
+		_delay_ms(5000);
     }
 }
+
+
 

@@ -16,6 +16,8 @@ Basic code taken from slides
 void xmem_init(void){
 	MCUCR |= (1 << SRE );  // enable XMEM
 	SFIOR |= (1 << XMM2 ); // mask unused bits (PC7-PC4 used for JTAG)
+	SFIOR &= ~(1 << XMM1 );
+	SFIOR &= ~(1 << XMM0 );
 }/**/void xmem_write(uint8_t data , uint16_t addr){
 	volatile char *ext_mem = (char *) BASE_ADDRESS;
 	ext_mem[addr]= data;

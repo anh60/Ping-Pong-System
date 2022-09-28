@@ -9,9 +9,14 @@
 #ifndef OLED_H_
 #define OLED_H_
 
-void write_oled_cmd(uint8_t cmd);
-void init_oled(void);
-
+void OLED_write_cmd(uint8_t cmd);
+void OLED_write_data(uint8_t msg);
+void OLED_init(void);
+void OLED_goto_page(uint8_t line);
+void OLED_goto_col(uint8_t col);
+void OLED_reset(void);
+void OLED_all_on(void);
+void OLED_test(void);
 
 
 #endif /* OLED_H_ */
