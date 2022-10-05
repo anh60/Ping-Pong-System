@@ -21,7 +21,7 @@ int16_t get_X_pos(void){
 	X_positive = sum /TH;
 	volatile double X_pos = X_positive - 160;
 	
-	if(X_pos < 10 && X_pos > -10) return 0;
+	if(X_pos < 20 && X_pos > -20) return 0;
 	
 	if(X_pos >=0) return X_pos*1.06;
 	else return X_pos*0.63;
@@ -37,7 +37,7 @@ int16_t get_Y_pos(void){
 	Y_positive = sum /TH;
 	volatile double Y_pos = Y_positive - 159;
 	
-	if(Y_pos < 10 && Y_pos > -10) return 0;
+	if(Y_pos < 20 && Y_pos > -20) return 0;
 	
 	if(Y_pos >=0) return Y_pos*1.05;
 	else return Y_pos*0.64;

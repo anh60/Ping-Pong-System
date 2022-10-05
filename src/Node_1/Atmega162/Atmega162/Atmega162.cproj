@@ -160,6 +160,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MENU\menu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MENU\menu.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="OLED\fonts.h">
       <SubType>compile</SubType>
     </Compile>
@@ -173,6 +179,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Tests\test.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TIMER\timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TIMER\timer.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="UART\uart.c">
@@ -191,6 +203,8 @@
   <ItemGroup>
     <Folder Include="ADC\" />
     <Folder Include="Joystick" />
+    <Folder Include="MENU" />
+    <Folder Include="TIMER" />
     <Folder Include="OLED" />
     <Folder Include="Tests" />
     <Folder Include="XMEM" />

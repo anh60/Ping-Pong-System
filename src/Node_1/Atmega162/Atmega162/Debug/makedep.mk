@@ -8,9 +8,13 @@ Joystick\joystick.c
 
 main.c
 
+MENU\menu.c
+
 OLED\oled.c
 
 Tests\test.c
+
+TIMER\timer.c
 
 UART\uart.c
 

@@ -81,9 +81,25 @@ void OLED_reset(void){
 	}
 }void OLED_clear_page(uint8_t page){	OLED_goto_page(page);	for (uint8_t col = 0; col < 128; col++){
 		OLED_write_data(0x00);
-	}}void OLED_get_char_from_font(char character){	unsigned char printable_char[8];	for (uint8_t i=0; i<8; i++){		 printable_char[i] = pgm_read_byte(&(font8[character-32][i]));	//read from PROGMEM		 OLED_write_data(printable_char[i]);	//print	}}void OLED_print_string(void){	char * string = "This is a a waaaay longer test.";	uint8_t string_length;		for (string_length = 0; string[string_length] !='\0'; ++string_length);	//Getting length	
-	uint8_t page = 0;
-	uint8_t col = 0;
-	
-	OLED_goto_page(0);
-	OLED_goto_col(0);		for (uint8_t i=0; i<string_length; i++){		if(col > 127){			 OLED_goto_page(++page);			 OLED_goto_col(0);			 col = 0;		}		OLED_get_char_from_font(string[i]);		col += 8;	}	}
+	}}void OLED_get_char_from_font(char character, uint8_t font_size){	unsigned char printable_char[font_size];	for (uint8_t i=0; i<font_size; i++){		if (font_size == 4)			printable_char[i] = pgm_read_byte(&(font4[character-32][i]));	//read from PROGMEM small		else if (font_size == 5)	printable_char[i] = pgm_read_byte(&(font5[character-32][i]));	//read from PROGMEM normal		else if (font_size == 8)	printable_char[i] = pgm_read_byte(&(font8[character-32][i]));	//read from PROGMEM big		else printf("ERROR: undefined font size\n\r");		OLED_write_data(printable_char[i]);	//print to OLED	}}void OLED_print_string(char * string, uint8_t page, uint8_t font_size){	uint8_t string_length;		for (string_length = 0; string[string_length] !='\0'; ++string_length);	//Getting length
+	OLED_goto_page(page);
+	OLED_goto_col(0);		for (uint8_t i=0; i<string_length; i++){		/*		if(col > 127){			 OLED_goto_page(++page);			 OLED_goto_col(0);			 col = 0;		}		col += 8;		*/		OLED_get_char_from_font(string[i], font_size);	}	}void OLED_print_menu(char * string[8], uint8_t font_size){	OLED_reset();	for (uint8_t i=0; i<8; i++){		OLED_print_string(string[i], i, font_size);	}	}void OLED_print_arrow(uint8_t row , uint8_t col){
+	OLED_goto_page(row);
+	OLED_goto_col(col);
+	OLED_write_data(0b00011000);
+	OLED_write_data(0b00111100);
+	OLED_write_data(0b01111110);
+	OLED_write_data(0b00011000);
+	OLED_write_data(0b00011000);
+}
+
+void OLED_delete_arrow(uint8_t row , uint8_t col){
+	OLED_goto_page(row);
+	OLED_goto_col(col);
+	OLED_write_data(0b00000000);
+	OLED_write_data(0b00000000);
+	OLED_write_data(0b00000000);
+	OLED_write_data(0b00000000);
+	OLED_write_data(0b00000000);
+}
+

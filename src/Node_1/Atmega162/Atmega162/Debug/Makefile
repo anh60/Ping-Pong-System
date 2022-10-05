@@ -35,6 +35,8 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../ADC/ \
 ../Joystick \
+../MENU \
+../TIMER \
 ../OLED \
 ../Tests \
 ../XMEM \
@@ -46,8 +48,10 @@ C_SRCS +=  \
 ../ADC/adc.c \
 ../Joystick/joystick.c \
 ../main.c \
+../MENU/menu.c \
 ../OLED/oled.c \
 ../Tests/test.c \
+../TIMER/timer.c \
 ../UART/uart.c \
 ../XMEM/xmem.c
 
@@ -62,8 +66,10 @@ OBJS +=  \
 ADC/adc.o \
 Joystick/joystick.o \
 main.o \
+MENU/menu.o \
 OLED/oled.o \
 Tests/test.o \
+TIMER/timer.o \
 UART/uart.o \
 XMEM/xmem.o
 
@@ -71,8 +77,10 @@ OBJS_AS_ARGS +=  \
 ADC/adc.o \
 Joystick/joystick.o \
 main.o \
+MENU/menu.o \
 OLED/oled.o \
 Tests/test.o \
+TIMER/timer.o \
 UART/uart.o \
 XMEM/xmem.o
 
@@ -80,8 +88,10 @@ C_DEPS +=  \
 ADC/adc.d \
 Joystick/joystick.d \
 main.d \
+MENU/menu.d \
 OLED/oled.d \
 Tests/test.d \
+TIMER/timer.d \
 UART/uart.d \
 XMEM/xmem.d
 
@@ -89,8 +99,10 @@ C_DEPS_AS_ARGS +=  \
 ADC/adc.d \
 Joystick/joystick.d \
 main.d \
+MENU/menu.d \
 OLED/oled.d \
 Tests/test.d \
+TIMER/timer.d \
 UART/uart.d \
 XMEM/xmem.d
 
@@ -129,6 +141,13 @@ Joystick/joystick.o: ../Joystick/joystick.c
 	@echo Finished building: $<
 	
 
+MENU/menu.o: ../MENU/menu.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 OLED/oled.o: ../OLED/oled.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -137,6 +156,13 @@ OLED/oled.o: ../OLED/oled.c
 	
 
 Tests/test.o: ../Tests/test.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+TIMER/timer.o: ../TIMER/timer.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
