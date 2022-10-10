@@ -12,9 +12,9 @@ MENU\menu.c
 
 OLED\oled.c
 
-Tests\test.c
+SPI\spi.c
 
-TIMER\timer.c
+Tests\test.c
 
 UART\uart.c
 

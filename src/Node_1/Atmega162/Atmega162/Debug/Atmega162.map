@@ -127,6 +127,25 @@ Discarded input sections
                 0x00000000       0x30 OLED/oled.o
  .text.OLED_clear_page
                 0x00000000       0x1a OLED/oled.o
+ .text          0x00000000        0x0 SPI/spi.o
+ .data          0x00000000        0x0 SPI/spi.o
+ .bss           0x00000000        0x0 SPI/spi.o
+ .text.SPI_init
+                0x00000000        0xe SPI/spi.o
+ .text.SPI_send
+                0x00000000       0x14 SPI/spi.o
+ .text.SPI_read
+                0x00000000        0xa SPI/spi.o
+ .debug_info    0x00000000       0xdf SPI/spi.o
+ .debug_abbrev  0x00000000       0xab SPI/spi.o
+ .debug_loc     0x00000000       0x2d SPI/spi.o
+ .debug_aranges
+                0x00000000       0x30 SPI/spi.o
+ .debug_ranges  0x00000000       0x20 SPI/spi.o
+ .debug_line    0x00000000       0xfc SPI/spi.o
+ .debug_str     0x00000000      0x195 SPI/spi.o
+ .comment       0x00000000       0x31 SPI/spi.o
+ .debug_frame   0x00000000       0x44 SPI/spi.o
  .text          0x00000000        0x0 Tests/test.o
  .data          0x00000000        0x0 Tests/test.o
  .bss           0x00000000        0x0 Tests/test.o
@@ -143,23 +162,9 @@ Discarded input sections
                 0x00000000       0x28 Tests/test.o
  .debug_ranges  0x00000000       0x48 Tests/test.o
  .debug_line    0x00000000      0x227 Tests/test.o
- .debug_str     0x00000000      0x2da Tests/test.o
+ .debug_str     0x00000000      0x2e2 Tests/test.o
  .comment       0x00000000       0x31 Tests/test.o
  .debug_frame   0x00000000      0x174 Tests/test.o
- .text          0x00000000        0x0 TIMER/timer.o
- .data          0x00000000        0x0 TIMER/timer.o
- .bss           0x00000000        0x0 TIMER/timer.o
- .text.init_timer
-                0x00000000        0x2 TIMER/timer.o
- .debug_info    0x00000000       0x7f TIMER/timer.o
- .debug_abbrev  0x00000000       0x44 TIMER/timer.o
- .debug_aranges
-                0x00000000       0x20 TIMER/timer.o
- .debug_ranges  0x00000000       0x10 TIMER/timer.o
- .debug_line    0x00000000       0x3e TIMER/timer.o
- .debug_str     0x00000000      0x174 TIMER/timer.o
- .comment       0x00000000       0x31 TIMER/timer.o
- .debug_frame   0x00000000       0x24 TIMER/timer.o
  .text          0x00000000        0x0 UART/uart.o
  .data          0x00000000        0x0 UART/uart.o
  .bss           0x00000000        0x0 UART/uart.o
@@ -485,8 +490,8 @@ LOAD Joystick/joystick.o
 LOAD main.o
 LOAD MENU/menu.o
 LOAD OLED/oled.o
+LOAD SPI/spi.o
 LOAD Tests/test.o
-LOAD TIMER/timer.o
 LOAD UART/uart.o
 LOAD XMEM/xmem.o
 START GROUP
@@ -1101,23 +1106,23 @@ END GROUP
  .debug_frame   0x00000374       0x54 UART/uart.o
  .debug_frame   0x000003c8       0x44 XMEM/xmem.o
 
-.debug_str      0x00000000      0x73d
+.debug_str      0x00000000      0x745
  *(.debug_str)
  .debug_str     0x00000000      0x1f6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_str     0x000001f6      0x1cb ADC/adc.o
-                                0x204 (size before relaxing)
- .debug_str     0x000003c1       0xee Joystick/joystick.o
-                                0x272 (size before relaxing)
- .debug_str     0x000004af       0x3f main.o
+ .debug_str     0x000001f6      0x1d3 ADC/adc.o
+                                0x20c (size before relaxing)
+ .debug_str     0x000003c9       0xee Joystick/joystick.o
+                                0x27a (size before relaxing)
+ .debug_str     0x000004b7       0x3f main.o
+                                0x1c1 (size before relaxing)
+ .debug_str     0x000004f6       0xcb MENU/menu.o
+                                0x311 (size before relaxing)
+ .debug_str     0x000005c1      0x107 OLED/oled.o
+                                0x2d6 (size before relaxing)
+ .debug_str     0x000006c8       0x4c UART/uart.o
+                                0x1c4 (size before relaxing)
+ .debug_str     0x00000714       0x31 XMEM/xmem.o
                                 0x1b9 (size before relaxing)
- .debug_str     0x000004ee       0xcb MENU/menu.o
-                                0x309 (size before relaxing)
- .debug_str     0x000005b9      0x107 OLED/oled.o
-                                0x2ce (size before relaxing)
- .debug_str     0x000006c0       0x4c UART/uart.o
-                                0x1bc (size before relaxing)
- .debug_str     0x0000070c       0x31 XMEM/xmem.o
-                                0x1b1 (size before relaxing)
 
 .debug_loc      0x00000000      0xc51
  *(.debug_loc)

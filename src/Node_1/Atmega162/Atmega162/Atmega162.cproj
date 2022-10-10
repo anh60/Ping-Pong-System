@@ -63,7 +63,8 @@
       <ToolNumber>J41800035720</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
-    <avrtoolinterface>JTAG</avrtoolinterface>
+    <avrtoolinterface>
+    </avrtoolinterface>
     <avrtoolinterfaceclock>200000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -143,6 +144,14 @@
         <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
       </AvrGcc>
     </ToolchainSettings>
+    <UsesExternalMakeFile>False</UsesExternalMakeFile>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <BuildTarget>all</BuildTarget>
+    <CleanTarget>clean</CleanTarget>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ADC\adc.c">
@@ -160,6 +169,9 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCP2515\mcp2515.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MENU\menu.c">
       <SubType>compile</SubType>
     </Compile>
@@ -175,16 +187,16 @@
     <Compile Include="OLED\oled.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="SPI\spi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SPI\spi.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Tests\test.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Tests\test.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="TIMER\timer.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="TIMER\timer.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="UART\uart.c">
@@ -203,8 +215,9 @@
   <ItemGroup>
     <Folder Include="ADC\" />
     <Folder Include="Joystick" />
+    <Folder Include="MCP2515\" />
     <Folder Include="MENU" />
-    <Folder Include="TIMER" />
+    <Folder Include="SPI" />
     <Folder Include="OLED" />
     <Folder Include="Tests" />
     <Folder Include="XMEM" />

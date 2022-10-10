@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  0000040c  00000000  00000000  0000586c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000073d  00000000  00000000  00005c78  2**0
+ 10 .debug_str    00000745  00000000  00000000  00005c78  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000c51  00000000  00000000  000063b5  2**0
+ 11 .debug_loc    00000c51  00000000  00000000  000063bd  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000160  00000000  00000000  00007006  2**0
+ 12 .debug_ranges 00000160  00000000  00000000  0000700e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2665,8 +2665,8 @@ void xmem_init(void){
     1732:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <__malloc_heap_start+0x1>
     1736:	30 93 3d 02 	sts	0x023D, r19	; 0x80023d <__brkval+0x1>
     173a:	20 93 3c 02 	sts	0x023C, r18	; 0x80023c <__brkval>
-    173e:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__data_start>
-    1742:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__data_start+0x1>
+    173e:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+    1742:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
     1746:	21 15       	cp	r18, r1
     1748:	31 05       	cpc	r19, r1
     174a:	41 f4       	brne	.+16     	; 0x175c <malloc+0xea>

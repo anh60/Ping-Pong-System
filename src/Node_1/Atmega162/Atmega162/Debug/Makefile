@@ -35,8 +35,9 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../ADC/ \
 ../Joystick \
+../MCP2515/ \
 ../MENU \
-../TIMER \
+../SPI \
 ../OLED \
 ../Tests \
 ../XMEM \
@@ -50,8 +51,8 @@ C_SRCS +=  \
 ../main.c \
 ../MENU/menu.c \
 ../OLED/oled.c \
+../SPI/spi.c \
 ../Tests/test.c \
-../TIMER/timer.c \
 ../UART/uart.c \
 ../XMEM/xmem.c
 
@@ -68,8 +69,8 @@ Joystick/joystick.o \
 main.o \
 MENU/menu.o \
 OLED/oled.o \
+SPI/spi.o \
 Tests/test.o \
-TIMER/timer.o \
 UART/uart.o \
 XMEM/xmem.o
 
@@ -79,8 +80,8 @@ Joystick/joystick.o \
 main.o \
 MENU/menu.o \
 OLED/oled.o \
+SPI/spi.o \
 Tests/test.o \
-TIMER/timer.o \
 UART/uart.o \
 XMEM/xmem.o
 
@@ -90,8 +91,8 @@ Joystick/joystick.d \
 main.d \
 MENU/menu.d \
 OLED/oled.d \
+SPI/spi.d \
 Tests/test.d \
-TIMER/timer.d \
 UART/uart.d \
 XMEM/xmem.d
 
@@ -101,8 +102,8 @@ Joystick/joystick.d \
 main.d \
 MENU/menu.d \
 OLED/oled.d \
+SPI/spi.d \
 Tests/test.d \
-TIMER/timer.d \
 UART/uart.d \
 XMEM/xmem.d
 
@@ -155,14 +156,14 @@ OLED/oled.o: ../OLED/oled.c
 	@echo Finished building: $<
 	
 
-Tests/test.o: ../Tests/test.c
+SPI/spi.o: ../SPI/spi.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-TIMER/timer.o: ../TIMER/timer.c
+Tests/test.o: ../Tests/test.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
