@@ -18,7 +18,8 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  .././XMEM/xmem.h .././ADC/adc.h .././Joystick/joystick.h \
- .././Tests/test.h .././OLED/oled.h .././Menu/menu.h
+ .././Tests/test.h .././OLED/oled.h .././Menu/menu.h \
+ .././MCP2515/mcp2515.h .././CAN/can.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -67,3 +68,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././OLED/oled.h:
 
 .././Menu/menu.h:
+
+.././MCP2515/mcp2515.h:
+
+.././CAN/can.h:

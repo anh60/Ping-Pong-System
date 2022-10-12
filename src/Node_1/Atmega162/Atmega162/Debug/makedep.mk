@@ -4,9 +4,13 @@
 
 ADC\adc.c
 
+CAN\can.c
+
 Joystick\joystick.c
 
 main.c
+
+MCP2515\mcp2515.c
 
 MENU\menu.c
 

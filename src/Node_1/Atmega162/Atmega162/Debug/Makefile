@@ -37,6 +37,7 @@ SUBDIRS :=  \
 ../Joystick \
 ../MCP2515/ \
 ../MENU \
+../CAN \
 ../SPI \
 ../OLED \
 ../Tests \
@@ -47,8 +48,10 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../ADC/adc.c \
+../CAN/can.c \
 ../Joystick/joystick.c \
 ../main.c \
+../MCP2515/mcp2515.c \
 ../MENU/menu.c \
 ../OLED/oled.c \
 ../SPI/spi.c \
@@ -65,8 +68,10 @@ ASM_SRCS +=
 
 OBJS +=  \
 ADC/adc.o \
+CAN/can.o \
 Joystick/joystick.o \
 main.o \
+MCP2515/mcp2515.o \
 MENU/menu.o \
 OLED/oled.o \
 SPI/spi.o \
@@ -76,8 +81,10 @@ XMEM/xmem.o
 
 OBJS_AS_ARGS +=  \
 ADC/adc.o \
+CAN/can.o \
 Joystick/joystick.o \
 main.o \
+MCP2515/mcp2515.o \
 MENU/menu.o \
 OLED/oled.o \
 SPI/spi.o \
@@ -87,8 +94,10 @@ XMEM/xmem.o
 
 C_DEPS +=  \
 ADC/adc.d \
+CAN/can.d \
 Joystick/joystick.d \
 main.d \
+MCP2515/mcp2515.d \
 MENU/menu.d \
 OLED/oled.d \
 SPI/spi.d \
@@ -98,8 +107,10 @@ XMEM/xmem.d
 
 C_DEPS_AS_ARGS +=  \
 ADC/adc.d \
+CAN/can.d \
 Joystick/joystick.d \
 main.d \
+MCP2515/mcp2515.d \
 MENU/menu.d \
 OLED/oled.d \
 SPI/spi.d \
@@ -128,6 +139,13 @@ ADC/adc.o: ../ADC/adc.c
 	@echo Finished building: $<
 	
 
+CAN/can.o: ../CAN/can.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 Joystick/joystick.o: ../Joystick/joystick.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -136,6 +154,13 @@ Joystick/joystick.o: ../Joystick/joystick.c
 	
 
 ./main.o: .././main.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCP2515/mcp2515.o: ../MCP2515/mcp2515.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
