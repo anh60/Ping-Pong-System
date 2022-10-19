@@ -16,7 +16,10 @@ int main(void)
     /* Initialize the SAM system */
     SystemInit();
 	configure_uart();
-	can_init_def_tx_rx_mb(0xA0777);
+	/* 125kbit/s at 80MHz 
+	BRP = 40 (39+1), SJW=1 (0+1) , PROPAG=5(4+1), PHASE1=6(5+1) PHASE2=4(3+1)
+	*/
+	can_init_def_tx_rx_mb(0x0009C22B);
 	
     /* Replace with your application code */
 	CAN_MESSAGE* msg_1;

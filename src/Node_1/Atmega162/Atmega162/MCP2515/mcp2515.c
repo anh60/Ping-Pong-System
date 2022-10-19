@@ -21,12 +21,17 @@ uint8_t mcp2515_read (uint8_t address ){
 	return result ;
 }
 
-void mcp2515_write(uint8_t address, uint8_t data){	PORTB &= ~(1 << PB4); // Select CAN - controller
+void mcp2515_write(uint8_t address, uint8_t data){
+	PORTB &= ~(1 << PB4); // Select CAN - controller
 	SPI_send ( MCP_WRITE ); // Send write instruction
 	SPI_send ( address ); // Send address
 	SPI_send ( data ); // Send data
 	PORTB |= (1 << PB4 ); // Deselect CAN - controller
-}void mcp2515_request_to_send(uint8_t buffer){	PORTB &= ~(1 << PB4); // Select CAN - controller
+
+}
+
+void mcp2515_request_to_send(uint8_t buffer){
+	PORTB &= ~(1 << PB4); // Select CAN - controller
 	switch(buffer){
 		case 0:
 			SPI_send ( MCP_RTS_TX0 ); // Send Request to send Buffer 0
@@ -42,20 +47,27 @@ void mcp2515_write(uint8_t address, uint8_t data){	PORTB &= ~(1 << PB4); // Sel
 			break;
 	}
 	PORTB |= (1 << PB4 ); // Deselect CAN - controller
-}
-void mcp2515_bit_modify(uint8_t address, uint8_t data, uint8_t mask){	PORTB &= ~(1 << PB4); // Select CAN - controller
+
+}
+
+void mcp2515_bit_modify(uint8_t address, uint8_t data, uint8_t mask){
+	PORTB &= ~(1 << PB4); // Select CAN - controller
 	SPI_send ( MCP_BITMOD ); // Send write instruction
 	SPI_send ( address ); // Send address
 	SPI_send ( mask ); // Send mask
 	SPI_send ( data ); // Send data
-	PORTB |= (1 << PB4 ); // Deselect CAN - controller}
+	PORTB |= (1 << PB4 ); // Deselect CAN - controller
+}
 
 
-uint8_t mcp2515_read_status(){	PORTB &= ~(1 << PB4); // Select CAN - controller
+uint8_t mcp2515_read_status(){
+	PORTB &= ~(1 << PB4); // Select CAN - controller
 	SPI_send( MCP_READ_STATUS ); // Send read status instruction
 	uint8_t value = SPI_read();
 	PORTB |= (1 << PB4 ); // Deselect CAN - controller
-	return value;}
+	return value;
+}
+
 
 uint8_t mcp2515_init (void){
 	uint8_t value, ctrlreg ;
@@ -70,9 +82,10 @@ uint8_t mcp2515_init (void){
 	// More initialization
 	mcp2515_write(MCP_CANCTRL,0b00000000); //Set to Normal mode
 	mcp2515_write(MCP_CANINTE,0b00000011); //Enable interrupts on RX buffers
-	mcp2515_write(MCP_CNF1,0b00000010); //BRP Baud Rate Prescaler = 2
-	mcp2515_write(MCP_CNF2,0b10111111); //PRSEG=8TQ, PS1=8TQ
-	mcp2515_write(MCP_CNF3,0b00000111); //PS=8TQ
+	//125Kbit/s at 16Mhz
+	mcp2515_write(MCP_CNF1,0x03); //SJW=1 (0+1), BRP Baud Rate Prescaler = 4 (3+1)
+	mcp2515_write(MCP_CNF2,0xAC); //BTLMODE=1, SAM=0, PS1=6 (5+1), PRSEG=5 (4+1)
+	mcp2515_write(MCP_CNF3,0x03); //PS2=4 (3+1)
 	
 	return 0;
-}
+}
