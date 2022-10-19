@@ -68,7 +68,11 @@ uint8_t mcp2515_init (void){
 		return 1;
 	}
 	// More initialization
-	mcp2515_write(MCP_CANCTRL,0b01000000); //Set to loopback mode
+	mcp2515_write(MCP_CANCTRL,0b00000000); //Set to Normal mode
+	mcp2515_write(MCP_CANINTE,0b00000011); //Enable interrupts on RX buffers
+	mcp2515_write(MCP_CNF1,0b00000010); //BRP Baud Rate Prescaler = 2
+	mcp2515_write(MCP_CNF2,0b10111111); //PRSEG=8TQ, PS1=8TQ
+	mcp2515_write(MCP_CNF3,0b00000111); //PS=8TQ
 	
 	return 0;
 }

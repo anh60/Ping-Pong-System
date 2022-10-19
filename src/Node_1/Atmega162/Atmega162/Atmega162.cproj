@@ -166,6 +166,12 @@
     <Compile Include="CAN\can.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="INT\interrupts.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="INT\interrupts.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Joystick\joystick.c">
       <SubType>compile</SubType>
     </Compile>
@@ -227,6 +233,7 @@
     <Folder Include="MCP2515\" />
     <Folder Include="MENU" />
     <Folder Include="CAN" />
+    <Folder Include="INT" />
     <Folder Include="SPI" />
     <Folder Include="OLED" />
     <Folder Include="Tests" />

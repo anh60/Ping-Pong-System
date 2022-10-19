@@ -6,6 +6,8 @@ ADC\adc.c
 
 CAN\can.c
 
+INT\interrupts.c
+
 Joystick\joystick.c
 
 main.c

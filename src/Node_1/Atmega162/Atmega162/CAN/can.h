@@ -19,6 +19,8 @@
 #define RXB0DLC  0x65
 #define RXB0D0   0x66
 
+#define myID	 10
+
 #include <stdio.h>
 
 struct can_message {
@@ -26,6 +28,7 @@ struct can_message {
 	char data_length ;
 	char data [8];
 } typedef can_message;
+void can_init(void);
 void can_message_send(can_message can_msg);
 can_message can_message_receive(void);
 

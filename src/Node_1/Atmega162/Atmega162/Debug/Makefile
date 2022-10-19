@@ -38,6 +38,7 @@ SUBDIRS :=  \
 ../MCP2515/ \
 ../MENU \
 ../CAN \
+../INT \
 ../SPI \
 ../OLED \
 ../Tests \
@@ -49,6 +50,7 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../ADC/adc.c \
 ../CAN/can.c \
+../INT/interrupts.c \
 ../Joystick/joystick.c \
 ../main.c \
 ../MCP2515/mcp2515.c \
@@ -69,6 +71,7 @@ ASM_SRCS +=
 OBJS +=  \
 ADC/adc.o \
 CAN/can.o \
+INT/interrupts.o \
 Joystick/joystick.o \
 main.o \
 MCP2515/mcp2515.o \
@@ -82,6 +85,7 @@ XMEM/xmem.o
 OBJS_AS_ARGS +=  \
 ADC/adc.o \
 CAN/can.o \
+INT/interrupts.o \
 Joystick/joystick.o \
 main.o \
 MCP2515/mcp2515.o \
@@ -95,6 +99,7 @@ XMEM/xmem.o
 C_DEPS +=  \
 ADC/adc.d \
 CAN/can.d \
+INT/interrupts.d \
 Joystick/joystick.d \
 main.d \
 MCP2515/mcp2515.d \
@@ -108,6 +113,7 @@ XMEM/xmem.d
 C_DEPS_AS_ARGS +=  \
 ADC/adc.d \
 CAN/can.d \
+INT/interrupts.d \
 Joystick/joystick.d \
 main.d \
 MCP2515/mcp2515.d \
@@ -140,6 +146,13 @@ ADC/adc.o: ../ADC/adc.c
 	
 
 CAN/can.o: ../CAN/can.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+INT/interrupts.o: ../INT/interrupts.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
