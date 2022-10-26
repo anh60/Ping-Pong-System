@@ -17,7 +17,7 @@
 
 #include "can_controller.h"
 
-#define DEBUG_INTERRUPT 0
+#define DEBUG_INTERRUPT 1
 
 /**
  * \brief CAN0 Interrupt handler for RX, TX and bus error interrupts

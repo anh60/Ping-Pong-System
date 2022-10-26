@@ -8,11 +8,10 @@
 #include "interrupts.h"
 #include "../CAN/can.h"
 #include <util/delay.h>
-#define F_CPU 4915200
 
 void INT_init(void){
-	GICR = 1<<INT0;		/* Enable INT0*/
-	MCUCR = 1<<ISC01 & ~(1<<ISC00);  /* Trigger INT0 on falling edge */	
+	GICR |= 1<<INT0;		/* Enable INT0*/
+	MCUCR |= 1<<ISC01 & ~(1<<ISC00);  /* Trigger INT0 on falling edge */	
 	sei();			/* Enable Global Interrupt */
 }
 

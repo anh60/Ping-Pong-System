@@ -42,8 +42,8 @@ SUBDIRS :=  \
 ../SPI \
 ../OLED \
 ../Tests \
-../XMEM \
-../UART/
+../UART/ \
+../XMEM
 
 
 # Add inputs and outputs from these tool invocations to the build variables 

@@ -29,7 +29,7 @@ can_message can_message_receive(void){
 	can_message can_msg;
 	//Read status register
 	 uint8_t int_flags = mcp2515_read (MCP_CANINTF); //We need it to know if it is RX0 or 1
-	 if(int_flags & 0b00000001 == 1){	//RX0 Interrupt
+	 if((int_flags & 0b00000001) == 1){	//RX0 Interrupt
 		//Read message
 		uint8_t high = mcp2515_read(RXB0SIDH); //ID High
 		can_msg.id = (high << 3) | ((mcp2515_read(RXB0SIDL) >> 5) & 0b00000111) ; //ID high + low

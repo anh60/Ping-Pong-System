@@ -237,8 +237,8 @@
     <Folder Include="SPI" />
     <Folder Include="OLED" />
     <Folder Include="Tests" />
-    <Folder Include="XMEM" />
     <Folder Include="UART\" />
+    <Folder Include="XMEM" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

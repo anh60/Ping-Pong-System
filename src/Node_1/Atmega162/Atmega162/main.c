@@ -17,6 +17,8 @@
 #include "MCP2515/mcp2515.h"
 #include "CAN/can.h"
 
+#define F_CPU 4915200UL
+
 
 int main(void)
 {
@@ -36,19 +38,16 @@ int main(void)
 		//joystick_test();
 		//menu_display_switch();
 
-		/*
+		
 		can_message can_msg;
-		can_msg.id = 3;
-		can_msg.data_length = 2;
-		can_msg.data[0] = 23;
-		can_msg.data[1] = 32;
+		can_msg.id = 100; //ID of Arduino
+		can_msg.data_length = 1; //Data Length
+		joystick_dir direction = get_dir();
+		can_msg.data[0] = direction; 
+		printf("DATA %d\n\r", can_msg.data[0]);
 		can_message_send(can_msg);
-		//Message is received by ISR
-		//can_message can_message_rtr = can_message_receive();
-		//printf("ID=%d, length=%d, data=%d, data2=%d\n\r",can_message_rtr.id, can_message_rtr.data_length, can_message_rtr.data[0],can_message_rtr.data[1]);
-		*/
-
-		_delay_ms(500);	
+		_delay_ms(200);
+			
 	}
 }
 

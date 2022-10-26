@@ -80,12 +80,13 @@ uint8_t mcp2515_init (void){
 		return 1;
 	}
 	// More initialization
-	mcp2515_write(MCP_CANCTRL,0b00000000); //Set to Normal mode
-	mcp2515_write(MCP_CANINTE,0b00000011); //Enable interrupts on RX buffers
 	//125Kbit/s at 16Mhz
 	mcp2515_write(MCP_CNF1,0x03); //SJW=1 (0+1), BRP Baud Rate Prescaler = 4 (3+1)
 	mcp2515_write(MCP_CNF2,0xAC); //BTLMODE=1, SAM=0, PS1=6 (5+1), PRSEG=5 (4+1)
 	mcp2515_write(MCP_CNF3,0x03); //PS2=4 (3+1)
 	
+	//mcp2515_write(MCP_CANCTRL,0b01000000); //Set to Loopback mode
+	mcp2515_write(MCP_CANCTRL,0b00000000); //Set to Normal mode
+	mcp2515_write(MCP_CANINTE,0b00000011); //Enable interrupts on RX buffers
 	return 0;
 }
