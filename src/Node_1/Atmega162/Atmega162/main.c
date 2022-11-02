@@ -19,7 +19,6 @@
 
 #define F_CPU 4915200UL
 
-
 int main(void)
 {
 
@@ -42,9 +41,9 @@ int main(void)
 		can_message can_msg;
 		can_msg.id = 100; //ID of Arduino
 		can_msg.data_length = 1; //Data Length
-		joystick_dir direction = get_dir();
-		can_msg.data[0] = direction; 
-		printf("DATA %d\n\r", can_msg.data[0]);
+		can_msg.data[0] = get_X_pos();
+		
+		printf("DATA1 = %d;\n\r", can_msg.data[0]);
 		can_message_send(can_msg);
 		_delay_ms(200);
 			

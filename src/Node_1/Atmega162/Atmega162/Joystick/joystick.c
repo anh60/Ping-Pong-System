@@ -11,9 +11,13 @@
 
 #define TH 20
 
+//LEFT MAX = 158
+//RIGHT MAX = 100
 int16_t get_X_pos(void){
 	volatile uint8_t X_positive;
 	volatile uint16_t sum;
+	
+	//Averages
 	sum = 0;
 	for (int i=0; i<TH ;i++){
 		sum += adc_read(0);
@@ -21,8 +25,10 @@ int16_t get_X_pos(void){
 	X_positive = sum /TH;
 	volatile double X_pos = X_positive - 160;
 	
+	//Threshold
 	if(X_pos < 20 && X_pos > -20) return 0;
 	
+	//Map to 0-100
 	if(X_pos >=0) return X_pos*1.06;
 	else return X_pos*0.63;
 }
