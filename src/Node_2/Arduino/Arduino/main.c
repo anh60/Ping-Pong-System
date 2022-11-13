@@ -26,12 +26,15 @@ int main(void)
 	can_init_def_tx_rx_mb(0x00290453);
 	pwm_init();
 	adc_init();
+	dac_init();
 	uint8_t goals = 0;
     uint8_t temp_count_blocked=0;
 	uint8_t temp_count_non_blocked=0;
+	uint16_t i=0;
 	while (1) 
     {
-		servo_pos();
+		motor_pos();	
+		//servo_pos();
 		printf("Goals = %d \n\r", goals);
 		
 		if (check_ir() == 1){
