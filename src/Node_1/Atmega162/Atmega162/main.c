@@ -45,6 +45,7 @@ int main(void)
 		
 		printf("DATA1 = %d;\n\r", can_msg.data[0]);
 		can_message_send(can_msg);
+		
 		_delay_ms(200);
 			
 	}

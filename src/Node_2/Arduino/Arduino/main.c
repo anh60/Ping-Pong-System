@@ -11,6 +11,8 @@
 #include "uart_and_printf/printf-stdarg.h"
 #include "CAN/can_controller.h"
 #include "PWM/pwm.h"
+#include "ADC/adc.h"
+#include "ADC/ir.h"
 
 int main(void)
 {
@@ -23,8 +25,29 @@ int main(void)
 	*/
 	can_init_def_tx_rx_mb(0x00290453);
 	pwm_init();
-    while (1) 
+	adc_init();
+	uint8_t goals = 0;
+    uint8_t temp_count_blocked=0;
+	uint8_t temp_count_non_blocked=0;
+	while (1) 
     {
 		servo_pos();
+		printf("Goals = %d \n\r", goals);
+		
+		if (check_ir() == 1){
+			temp_count_blocked++;
+		}
+		
+		if (temp_count_blocked > 1){
+			if (check_ir() == 0){
+				temp_count_non_blocked++;
+			}
+		}
+		if (temp_count_non_blocked > 100) {
+			temp_count_blocked=0;
+			temp_count_non_blocked=0;
+			goals++;
+		}
+		
     }
 }

@@ -2229,8 +2229,8 @@ void xmem_init(void){
      f86:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <__malloc_heap_start+0x1>
      f8a:	30 93 d9 01 	sts	0x01D9, r19	; 0x8001d9 <__brkval+0x1>
      f8e:	20 93 d8 01 	sts	0x01D8, r18	; 0x8001d8 <__brkval>
-     f92:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
-     f96:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+     f92:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__data_start>
+     f96:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__data_start+0x1>
      f9a:	21 15       	cp	r18, r1
      f9c:	31 05       	cpc	r19, r1
      f9e:	41 f4       	brne	.+16     	; 0xfb0 <malloc+0xea>
