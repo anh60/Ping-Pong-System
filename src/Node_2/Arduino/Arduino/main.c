@@ -13,6 +13,9 @@
 #include "PWM/pwm.h"
 #include "ADC/adc.h"
 #include "ADC/ir.h"
+#include "Game/game.h"
+#include "Solenoid/solenoid.h"
+
 
 int main(void)
 {
@@ -27,30 +30,22 @@ int main(void)
 	pwm_init();
 	adc_init();
 	dac_init();
+	init_encoder();
+	init_solenoid();
+	uint8_t new_goals = 0;
 	uint8_t goals = 0;
-    uint8_t temp_count_blocked=0;
-	uint8_t temp_count_non_blocked=0;
-	uint16_t i=0;
 	while (1) 
     {
-		motor_pos();	
-		//servo_pos();
-		printf("Goals = %d \n\r", goals);
+		activate_solenoid();	
+		servo_pos();
 		
-		if (check_ir() == 1){
-			temp_count_blocked++;
-		}
+		closed_loop();
 		
-		if (temp_count_blocked > 1){
-			if (check_ir() == 0){
-				temp_count_non_blocked++;
-			}
+		new_goals = count_goals(goals);
+		if (new_goals != goals){
+			printf("Goals = %d \n\r", goals);
+			goals=new_goals;
 		}
-		if (temp_count_non_blocked > 100) {
-			temp_count_blocked=0;
-			temp_count_non_blocked=0;
-			goals++;
-		}
-		
+			
     }
 }

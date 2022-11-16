@@ -6,7 +6,7 @@
  */ 
 #include <sam.h>
 #include "ir.h"
-#define TH 1700 //ADC value
+#define TH 1650 //ADC value
 
 // Return 0 when not blocked
 uint8_t check_ir(void)       

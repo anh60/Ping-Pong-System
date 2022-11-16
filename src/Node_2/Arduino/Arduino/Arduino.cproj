@@ -201,6 +201,12 @@
     <Compile Include="Device_Startup\system_sam3xa.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Game\game.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Game\game.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
@@ -214,6 +220,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="PWM\pwm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Solenoid\solenoid.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Solenoid\solenoid.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="uart_and_printf\printf-stdarg.c">
@@ -235,6 +247,8 @@
     <Folder Include="ADC" />
     <Folder Include="DAC" />
     <Folder Include="Motor\" />
+    <Folder Include="Game" />
+    <Folder Include="Solenoid" />
     <Folder Include="PWM\" />
     <Folder Include="uart_and_printf" />
   </ItemGroup>

@@ -40,10 +40,14 @@ int main(void)
 		
 		can_message can_msg;
 		can_msg.id = 100; //ID of Arduino
-		can_msg.data_length = 1; //Data Length
+		can_msg.data_length = 3; //Data Length
 		can_msg.data[0] = get_X_pos();
+		can_msg.data[1] = get_Y_pos();
+		can_msg.data[2] = read_touch_button_r();
 		
-		printf("DATA1 = %d;\n\r", can_msg.data[0]);
+		printf("DATA POS X = %d;\n\r", can_msg.data[0]);
+		printf("DATA POS Y = %d;\n\r", can_msg.data[1]);
+		printf("DATA BTN = %d;\n\r", can_msg.data[2]);
 		can_message_send(can_msg);
 		
 		_delay_ms(200);

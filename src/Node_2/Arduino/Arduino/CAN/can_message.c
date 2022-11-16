@@ -13,3 +13,13 @@ uint8_t get_servo_message(void){
 	uint8_t servo_message = msg.data[0];
 	return servo_message;
 }
+
+uint8_t get_motor_message(void){
+	uint8_t motor_message = msg.data[1];
+	return motor_message;
+}
+
+uint8_t get_touch_btn(void){
+	uint8_t btn_message = msg.data[2] & 0x1;
+	return btn_message;
+}

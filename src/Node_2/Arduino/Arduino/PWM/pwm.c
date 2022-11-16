@@ -52,7 +52,6 @@ void servo_pos(void)
 		duty_cycle = (150+90-pos_mapped)*10/T_PERIOD;
 	} else {
 		pos_mapped = MAP(pos, 0, 100, 150, 210); //times by 100
-		
 		duty_cycle = pos_mapped*10/T_PERIOD;
 	}
 	

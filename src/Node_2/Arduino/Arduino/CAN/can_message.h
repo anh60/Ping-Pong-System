@@ -12,13 +12,13 @@
 
 CAN_MESSAGE msg; 
 /* Data[0] = Servo msg
- * Data[1) = ....
- *
+ * Data[1] = Motor msg
+ * Data[2] = Right touch button msg
  */
 
 uint8_t get_servo_message(void);
-
-
+uint8_t get_motor_message(void);
+uint8_t get_touch_btn(void);
 
 
 #endif /* CAN_MESSAGE_H_ */
