@@ -2,7 +2,10 @@
  * can.c
  *
  * Created: 12.10.2022 16:14:48
- *  Author: deaguiar
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
  */ 
 
 #include "can.h"

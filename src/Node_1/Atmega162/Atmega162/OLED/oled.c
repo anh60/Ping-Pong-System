@@ -2,8 +2,11 @@
  * oled.c
  *
  * Created: 21/09/2022 3:07:37 pm
- *  Author: danie
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 #include "../XMEM/xmem.h"
 #include <util/delay.h>

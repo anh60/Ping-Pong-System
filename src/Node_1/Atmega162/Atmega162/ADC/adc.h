@@ -2,7 +2,10 @@
  * adc.h
  *
  * Created: 14/09/2022 12:17:39 pm
- *  Author: Andreas, Daniel and Marcus
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
  */ 
 
 
@@ -13,8 +16,6 @@
 
 void adc_init (void);
 uint8_t adc_read(uint8_t channel); //volatile
-void adc_calibrate();
-//pos_t pos_read(void);
 
 
 

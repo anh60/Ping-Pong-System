@@ -1,3 +1,13 @@
+/*
+ * uart.c
+ *
+ * Created: 9/7/2022 11:32:10 AM
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
+
 /* This is taken from ATMEGA162 datasheet*/
 
 #include <avr/io.h>

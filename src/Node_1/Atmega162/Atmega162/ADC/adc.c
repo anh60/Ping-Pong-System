@@ -2,8 +2,11 @@
  * adc.c
  *
  * Created: 14/09/2022 12:17:28 pm
- *  Author: Andreas, Daniel and Marcus
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 #include "adc.h"
 #include <avr/io.h>
@@ -31,8 +34,3 @@ uint8_t adc_read(uint8_t channel){
 		ret_val[3] = ext_mem_adc[0x0000];
 		return ret_val[channel];
 }
-
-void adc_calibrate(){
-	printf("Calibrating ADC\n\r");
-	
-};

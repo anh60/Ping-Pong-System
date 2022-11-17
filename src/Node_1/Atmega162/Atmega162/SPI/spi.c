@@ -2,8 +2,11 @@
  * spi.c
  *
  * Created: 10/10/2022 2:11:55 pm
- *  Author: 
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 #include "spi.h"
 /* Init procedure. Partially taken from datasheet */void SPI_init(void){	/* Set SSn, MOSI and SCK as output, all others input */

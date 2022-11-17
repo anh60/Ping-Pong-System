@@ -2,8 +2,11 @@
  * spi.h
  *
  * Created: 10/10/2022 2:12:05 pm
- *  Author: danie
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef SPI_H_

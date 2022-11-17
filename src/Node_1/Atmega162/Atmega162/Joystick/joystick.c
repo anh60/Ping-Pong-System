@@ -2,8 +2,12 @@
  * joystick.c
  *
  * Created: 14/09/2022 4:21:41 pm
- *  Author: Andreas, Daniel and Marcus
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
+
 #include <stdlib.h>
 #include "joystick.h"
 #include "../ADC/adc.h"
@@ -61,6 +65,7 @@ joystick_dir get_dir(void){
 		if(Y>0)return UP;
 		if(Y<0)return DOWN;
 	}
+return NEUTRAL;
 }
 
 static int16_t get_slider(uint8_t dir){

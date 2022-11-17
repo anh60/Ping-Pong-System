@@ -2,8 +2,11 @@
  * test.h
  *
  * Created: 07/09/2022 5:01:50 pm
- *  Author: Andreas, Daniel and Marcus
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef SRAM_TEST_CR_H_

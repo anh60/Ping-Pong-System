@@ -1,3 +1,13 @@
+/*
+ * uart.h
+ *
+ * Created: 9/7/2022 11:32:10 AM
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
+
 #ifndef UART_H_
 #define UART_H_
 

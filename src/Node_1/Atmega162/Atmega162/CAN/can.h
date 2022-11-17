@@ -2,8 +2,11 @@
  * can.h
  *
  * Created: 12.10.2022 16:14:58
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef CAN_H_

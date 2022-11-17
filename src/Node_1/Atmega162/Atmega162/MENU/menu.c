@@ -2,8 +2,12 @@
  * menu.c
  *
  * Created: 05.10.2022 12:43:30
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
+ 
 #define F_CPU 4915200
 
 #include "menu.h"

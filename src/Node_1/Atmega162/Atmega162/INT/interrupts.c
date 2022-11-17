@@ -2,7 +2,10 @@
  * interrupts.c
  *
  * Created: 19.10.2022 13:26:00
- *  Author: deaguiar
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
  */ 
 
 #include "interrupts.h"
@@ -21,6 +24,5 @@ ISR(INT0_vect)
 	printf("This is an INT0: CAN message:\n\r");
 	can_message can_message_rtr = can_message_receive();
 	printf("ID=%d, length=%d, data=%d, data2=%d\n\r",can_message_rtr.id, can_message_rtr.data_length, can_message_rtr.data[0],can_message_rtr.data[1]);
-	_delay_ms(50);  	/* Software debouncing control delay */
-	
+	_delay_ms(50);  	/* Software debouncing control delay */	
 }

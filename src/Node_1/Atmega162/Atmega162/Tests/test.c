@@ -1,3 +1,13 @@
+/*
+ * test.c
+ *
+ * Created: 07/09/2022 5:01:50 pm
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
+
 #include <stdlib.h>
 #include <avr/io.h>
 

@@ -2,8 +2,11 @@
  * xmem.h
  *
  * Created: 9/7/2022 11:32:24 AM
- *  Author: Andreas, Daniel and Marcus
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef XMEM_H_

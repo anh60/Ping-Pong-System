@@ -35,7 +35,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                              ADC/adc.o (__do_copy_data)
+                              INT/interrupts.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
                               MENU/menu.o (__do_clear_bss)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
@@ -49,7 +49,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(iob.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fdevopen.o) (__iob)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(printf.o)
-                              ADC/adc.o (printf)
+                              INT/interrupts.o (printf)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(puts.o)
                               MCP2515/mcp2515.o (puts)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
@@ -97,10 +97,6 @@ Discarded input sections
  .text          0x00000000        0x0 ADC/adc.o
  .data          0x00000000        0x0 ADC/adc.o
  .bss           0x00000000        0x0 ADC/adc.o
- .rodata.str1.1
-                0x00000000       0x12 ADC/adc.o
- .text.adc_calibrate
-                0x00000000       0x12 ADC/adc.o
  .text          0x00000000        0x0 CAN/can.o
  .data          0x00000000        0x0 CAN/can.o
  .bss           0x00000000        0x0 CAN/can.o
@@ -112,7 +108,7 @@ Discarded input sections
  .bss           0x00000000        0x0 Joystick/joystick.o
  .text.get_slider
                 0x00000000       0x7c Joystick/joystick.o
- .text.get_dir  0x00000000       0x68 Joystick/joystick.o
+ .text.get_dir  0x00000000       0x6c Joystick/joystick.o
  .text.get_slider_r
                 0x00000000        0x8 Joystick/joystick.o
  .text.get_slider_l
@@ -136,23 +132,23 @@ Discarded input sections
                 0x00000000       0x90 MENU/menu.o
  .text.menu_display_switch
                 0x00000000       0xc6 MENU/menu.o
- .data.old_menu_2_selected_option.2014
+ .data.old_menu_2_selected_option.2010
                 0x00000000        0x1 MENU/menu.o
- .bss.menu_2_selected_option.2013
+ .bss.menu_2_selected_option.2009
                 0x00000000        0x1 MENU/menu.o
- .data.old_menu_1_selected_option.2012
+ .data.old_menu_1_selected_option.2008
                 0x00000000        0x1 MENU/menu.o
- .bss.menu_1_selected_option.2011
+ .bss.menu_1_selected_option.2007
                 0x00000000        0x1 MENU/menu.o
- .data.old_selected_option.2010
-                0x00000000        0x1 MENU/menu.o
- .bss.selected_option.2009
-                0x00000000        0x1 MENU/menu.o
- .bss.page.2003
-                0x00000000        0x1 MENU/menu.o
- .bss.joy_dir.2004
+ .data.old_selected_option.2006
                 0x00000000        0x1 MENU/menu.o
  .bss.selected_option.2005
+                0x00000000        0x1 MENU/menu.o
+ .bss.page.1999
+                0x00000000        0x1 MENU/menu.o
+ .bss.joy_dir.2000
+                0x00000000        0x1 MENU/menu.o
+ .bss.selected_option.2001
                 0x00000000        0x1 MENU/menu.o
  .rodata.str1.1
                 0x00000000       0xb5 MENU/menu.o
@@ -167,7 +163,7 @@ Discarded input sections
                 0x00000000       0x28 MENU/menu.o
  .debug_ranges  0x00000000       0x18 MENU/menu.o
  .debug_line    0x00000000      0x267 MENU/menu.o
- .debug_str     0x00000000      0x309 MENU/menu.o
+ .debug_str     0x00000000      0x311 MENU/menu.o
  .comment       0x00000000       0x31 MENU/menu.o
  .debug_frame   0x00000000       0x34 MENU/menu.o
  .text          0x00000000        0x0 OLED/oled.o
@@ -219,8 +215,8 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x28 Tests/test.o
  .debug_ranges  0x00000000       0x48 Tests/test.o
- .debug_line    0x00000000      0x227 Tests/test.o
- .debug_str     0x00000000      0x2da Tests/test.o
+ .debug_line    0x00000000      0x22a Tests/test.o
+ .debug_str     0x00000000      0x2e2 Tests/test.o
  .comment       0x00000000       0x31 Tests/test.o
  .debug_frame   0x00000000      0x174 Tests/test.o
  .text          0x00000000        0x0 UART/uart.o
@@ -1080,122 +1076,122 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x280
+.debug_aranges  0x00000000      0x278
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x30 ADC/adc.o
+                0x00000000       0x28 ADC/adc.o
  .debug_aranges
-                0x00000030       0x30 CAN/can.o
+                0x00000028       0x30 CAN/can.o
  .debug_aranges
-                0x00000060       0x28 INT/interrupts.o
+                0x00000058       0x28 INT/interrupts.o
  .debug_aranges
-                0x00000088       0x70 Joystick/joystick.o
+                0x00000080       0x70 Joystick/joystick.o
  .debug_aranges
-                0x000000f8       0x20 main.o
+                0x000000f0       0x20 main.o
  .debug_aranges
-                0x00000118       0x50 MCP2515/mcp2515.o
+                0x00000110       0x50 MCP2515/mcp2515.o
  .debug_aranges
-                0x00000168       0x80 OLED/oled.o
+                0x00000160       0x80 OLED/oled.o
  .debug_aranges
-                0x000001e8       0x30 SPI/spi.o
+                0x000001e0       0x30 SPI/spi.o
  .debug_aranges
-                0x00000218       0x38 UART/uart.o
+                0x00000210       0x38 UART/uart.o
  .debug_aranges
-                0x00000250       0x30 XMEM/xmem.o
+                0x00000248       0x30 XMEM/xmem.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2380
+.debug_info     0x00000000     0x2331
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5d0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_info    0x000005d0      0x1b4 ADC/adc.o
- .debug_info    0x00000784      0x312 CAN/can.o
- .debug_info    0x00000a96      0x1e0 INT/interrupts.o
- .debug_info    0x00000c76      0x3b8 Joystick/joystick.o
- .debug_info    0x0000102e      0x2d2 main.o
- .debug_info    0x00001300      0x3f6 MCP2515/mcp2515.o
- .debug_info    0x000016f6      0x946 OLED/oled.o
- .debug_info    0x0000203c       0xdd SPI/spi.o
- .debug_info    0x00002119      0x13c UART/uart.o
- .debug_info    0x00002255      0x12b XMEM/xmem.o
+ .debug_info    0x000005d0      0x183 ADC/adc.o
+ .debug_info    0x00000753      0x312 CAN/can.o
+ .debug_info    0x00000a65      0x1e0 INT/interrupts.o
+ .debug_info    0x00000c45      0x3b8 Joystick/joystick.o
+ .debug_info    0x00000ffd      0x2bf main.o
+ .debug_info    0x000012bc      0x3eb MCP2515/mcp2515.o
+ .debug_info    0x000016a7      0x946 OLED/oled.o
+ .debug_info    0x00001fed       0xdd SPI/spi.o
+ .debug_info    0x000020ca      0x13c UART/uart.o
+ .debug_info    0x00002206      0x12b XMEM/xmem.o
 
-.debug_abbrev   0x00000000     0x116c
+.debug_abbrev   0x00000000     0x1112
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x580 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_abbrev  0x00000580      0x160 ADC/adc.o
- .debug_abbrev  0x000006e0      0x141 CAN/can.o
- .debug_abbrev  0x00000821      0x169 INT/interrupts.o
- .debug_abbrev  0x0000098a      0x171 Joystick/joystick.o
- .debug_abbrev  0x00000afb      0x179 main.o
- .debug_abbrev  0x00000c74      0x14f MCP2515/mcp2515.o
- .debug_abbrev  0x00000dc3      0x16a OLED/oled.o
- .debug_abbrev  0x00000f2d       0xab SPI/spi.o
- .debug_abbrev  0x00000fd8       0xc3 UART/uart.o
- .debug_abbrev  0x0000109b       0xd1 XMEM/xmem.o
+ .debug_abbrev  0x00000580      0x12b ADC/adc.o
+ .debug_abbrev  0x000006ab      0x141 CAN/can.o
+ .debug_abbrev  0x000007ec      0x169 INT/interrupts.o
+ .debug_abbrev  0x00000955      0x171 Joystick/joystick.o
+ .debug_abbrev  0x00000ac6      0x161 main.o
+ .debug_abbrev  0x00000c27      0x142 MCP2515/mcp2515.o
+ .debug_abbrev  0x00000d69      0x16a OLED/oled.o
+ .debug_abbrev  0x00000ed3       0xab SPI/spi.o
+ .debug_abbrev  0x00000f7e       0xc3 UART/uart.o
+ .debug_abbrev  0x00001041       0xd1 XMEM/xmem.o
 
-.debug_line     0x00000000     0x14fc
+.debug_line     0x00000000     0x14f7
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x140 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_line    0x00000140      0x17b ADC/adc.o
- .debug_line    0x000002bb      0x18a CAN/can.o
- .debug_line    0x00000445      0x171 INT/interrupts.o
- .debug_line    0x000005b6      0x35e Joystick/joystick.o
- .debug_line    0x00000914      0x21f main.o
- .debug_line    0x00000b33      0x24e MCP2515/mcp2515.o
- .debug_line    0x00000d81      0x46a OLED/oled.o
- .debug_line    0x000011eb       0xf6 SPI/spi.o
- .debug_line    0x000012e1      0x133 UART/uart.o
- .debug_line    0x00001414       0xe8 XMEM/xmem.o
+ .debug_line    0x00000140      0x154 ADC/adc.o
+ .debug_line    0x00000294      0x18a CAN/can.o
+ .debug_line    0x0000041e      0x171 INT/interrupts.o
+ .debug_line    0x0000058f      0x364 Joystick/joystick.o
+ .debug_line    0x000008f3      0x238 main.o
+ .debug_line    0x00000b2b      0x24f MCP2515/mcp2515.o
+ .debug_line    0x00000d7a      0x46a OLED/oled.o
+ .debug_line    0x000011e4       0xf6 SPI/spi.o
+ .debug_line    0x000012da      0x135 UART/uart.o
+ .debug_line    0x0000140f       0xe8 XMEM/xmem.o
 
-.debug_frame    0x00000000      0x5dc
+.debug_frame    0x00000000      0x5c0
  *(.debug_frame)
- .debug_frame   0x00000000       0x60 ADC/adc.o
- .debug_frame   0x00000060       0x88 CAN/can.o
- .debug_frame   0x000000e8       0x8c INT/interrupts.o
- .debug_frame   0x00000174      0x128 Joystick/joystick.o
- .debug_frame   0x0000029c       0x34 main.o
- .debug_frame   0x000002d0       0xa8 MCP2515/mcp2515.o
- .debug_frame   0x00000378      0x188 OLED/oled.o
- .debug_frame   0x00000500       0x44 SPI/spi.o
- .debug_frame   0x00000544       0x54 UART/uart.o
- .debug_frame   0x00000598       0x44 XMEM/xmem.o
+ .debug_frame   0x00000000       0x44 ADC/adc.o
+ .debug_frame   0x00000044       0x88 CAN/can.o
+ .debug_frame   0x000000cc       0x8c INT/interrupts.o
+ .debug_frame   0x00000158      0x128 Joystick/joystick.o
+ .debug_frame   0x00000280       0x34 main.o
+ .debug_frame   0x000002b4       0xa8 MCP2515/mcp2515.o
+ .debug_frame   0x0000035c      0x188 OLED/oled.o
+ .debug_frame   0x000004e4       0x44 SPI/spi.o
+ .debug_frame   0x00000528       0x54 UART/uart.o
+ .debug_frame   0x0000057c       0x44 XMEM/xmem.o
 
-.debug_str      0x00000000      0x824
+.debug_str      0x00000000      0x816
  *(.debug_str)
  .debug_str     0x00000000      0x1f6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_str     0x000001f6      0x1cb ADC/adc.o
-                                0x204 (size before relaxing)
- .debug_str     0x000003c1       0xc6 CAN/can.o
-                                0x234 (size before relaxing)
- .debug_str     0x00000487       0x47 INT/interrupts.o
-                                0x22d (size before relaxing)
- .debug_str     0x000004ce       0xe5 Joystick/joystick.o
-                                0x272 (size before relaxing)
- .debug_str     0x000005b3       0x30 main.o
-                                0x272 (size before relaxing)
- .debug_str     0x000005e3       0x7d MCP2515/mcp2515.o
+ .debug_str     0x000001f6      0x1be ADC/adc.o
+                                0x1f7 (size before relaxing)
+ .debug_str     0x000003b4       0xc6 CAN/can.o
+                                0x23c (size before relaxing)
+ .debug_str     0x0000047a       0x4e INT/interrupts.o
+                                0x235 (size before relaxing)
+ .debug_str     0x000004c8       0xe5 Joystick/joystick.o
+                                0x27a (size before relaxing)
+ .debug_str     0x000005ad       0x30 main.o
+                                0x27a (size before relaxing)
+ .debug_str     0x000005dd       0x75 MCP2515/mcp2515.o
                                 0x247 (size before relaxing)
- .debug_str     0x00000660      0x13a OLED/oled.o
-                                0x2ce (size before relaxing)
- .debug_str     0x0000079a        0xd SPI/spi.o
-                                0x18d (size before relaxing)
- .debug_str     0x000007a7       0x4c UART/uart.o
-                                0x1bc (size before relaxing)
- .debug_str     0x000007f3       0x31 XMEM/xmem.o
-                                0x1b1 (size before relaxing)
+ .debug_str     0x00000652      0x13a OLED/oled.o
+                                0x2d6 (size before relaxing)
+ .debug_str     0x0000078c        0xd SPI/spi.o
+                                0x195 (size before relaxing)
+ .debug_str     0x00000799       0x4c UART/uart.o
+                                0x1c4 (size before relaxing)
+ .debug_str     0x000007e5       0x31 XMEM/xmem.o
+                                0x1b9 (size before relaxing)
 
-.debug_loc      0x00000000     0x1100
+.debug_loc      0x00000000     0x10d4
  *(.debug_loc)
- .debug_loc     0x00000000       0xd1 ADC/adc.o
- .debug_loc     0x000000d1      0x16e CAN/can.o
- .debug_loc     0x0000023f      0x143 INT/interrupts.o
- .debug_loc     0x00000382      0x307 Joystick/joystick.o
- .debug_loc     0x00000689       0x8f main.o
- .debug_loc     0x00000718      0x214 MCP2515/mcp2515.o
- .debug_loc     0x0000092c      0x77a OLED/oled.o
- .debug_loc     0x000010a6       0x26 UART/uart.o
- .debug_loc     0x000010cc       0x34 XMEM/xmem.o
+ .debug_loc     0x00000000       0x95 ADC/adc.o
+ .debug_loc     0x00000095      0x16e CAN/can.o
+ .debug_loc     0x00000203      0x143 INT/interrupts.o
+ .debug_loc     0x00000346      0x317 Joystick/joystick.o
+ .debug_loc     0x0000065d       0x8f main.o
+ .debug_loc     0x000006ec      0x214 MCP2515/mcp2515.o
+ .debug_loc     0x00000900      0x77a OLED/oled.o
+ .debug_loc     0x0000107a       0x26 UART/uart.o
+ .debug_loc     0x000010a0       0x34 XMEM/xmem.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1215,18 +1211,18 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x1e0
+.debug_ranges   0x00000000      0x1d8
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x20 ADC/adc.o
- .debug_ranges  0x00000020       0x20 CAN/can.o
- .debug_ranges  0x00000040       0x18 INT/interrupts.o
- .debug_ranges  0x00000058       0x60 Joystick/joystick.o
- .debug_ranges  0x000000b8       0x10 main.o
- .debug_ranges  0x000000c8       0x40 MCP2515/mcp2515.o
- .debug_ranges  0x00000108       0x70 OLED/oled.o
- .debug_ranges  0x00000178       0x20 SPI/spi.o
- .debug_ranges  0x00000198       0x28 UART/uart.o
- .debug_ranges  0x000001c0       0x20 XMEM/xmem.o
+ .debug_ranges  0x00000000       0x18 ADC/adc.o
+ .debug_ranges  0x00000018       0x20 CAN/can.o
+ .debug_ranges  0x00000038       0x18 INT/interrupts.o
+ .debug_ranges  0x00000050       0x60 Joystick/joystick.o
+ .debug_ranges  0x000000b0       0x10 main.o
+ .debug_ranges  0x000000c0       0x40 MCP2515/mcp2515.o
+ .debug_ranges  0x00000100       0x70 OLED/oled.o
+ .debug_ranges  0x00000170       0x20 SPI/spi.o
+ .debug_ranges  0x00000190       0x28 UART/uart.o
+ .debug_ranges  0x000001b8       0x20 XMEM/xmem.o
 
 .debug_macro
  *(.debug_macro)

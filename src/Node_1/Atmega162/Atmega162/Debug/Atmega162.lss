@@ -13,21 +13,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001648  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000280  00000000  00000000  00001684  2**0
+  5 .debug_aranges 00000278  00000000  00000000  00001684  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00002380  00000000  00000000  00001904  2**0
+  6 .debug_info   00002331  00000000  00000000  000018fc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000116c  00000000  00000000  00003c84  2**0
+  7 .debug_abbrev 00001112  00000000  00000000  00003c2d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000014fc  00000000  00000000  00004df0  2**0
+  8 .debug_line   000014f7  00000000  00000000  00004d3f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000005dc  00000000  00000000  000062ec  2**2
+  9 .debug_frame  000005c0  00000000  00000000  00006238  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000824  00000000  00000000  000068c8  2**0
+ 10 .debug_str    00000816  00000000  00000000  000067f8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00001100  00000000  00000000  000070ec  2**0
+ 11 .debug_loc    000010d4  00000000  00000000  0000700e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000001e0  00000000  00000000  000081ec  2**0
+ 12 .debug_ranges 000001d8  00000000  00000000  000080e2  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -168,7 +168,6 @@ uint8_t adc_read(uint8_t channel){
       ec:	e8 0f       	add	r30, r24
       ee:	f1 1d       	adc	r31, r1
       f0:	80 81       	ld	r24, Z
-}
       f2:	0f 90       	pop	r0
       f4:	0f 90       	pop	r0
       f6:	0f 90       	pop	r0
@@ -469,8 +468,7 @@ ISR(INT0_vect)
      2b6:	f1 f7       	brne	.-4      	; 0x2b4 <__vector_1+0x6e>
      2b8:	00 c0       	rjmp	.+0      	; 0x2ba <__vector_1+0x74>
      2ba:	00 00       	nop
-	_delay_ms(50);  	/* Software debouncing control delay */
-	
+	_delay_ms(50);  	/* Software debouncing control delay */	
 }
      2bc:	0f b6       	in	r0, 0x3f	; 63
      2be:	f8 94       	cli
@@ -808,7 +806,7 @@ uint8_t read_touch_button_r(void){
      556:	08 95       	ret
 
 00000558 <main>:
-#include "CAN/can.h"
+#include "INT/interrupts.h"
 
 #define F_CPU 4915200UL
 
@@ -839,38 +837,38 @@ int main(void)
      580:	0e 94 14 04 	call	0x828	; 0x828 <xmem_init>
 	adc_init();			//Initializing ADC
      584:	0e 94 57 00 	call	0xae	; 0xae <adc_init>
-	init_buttons();		//Init PB buttons
+	init_buttons();		//Initializing PB buttons
      588:	0e 94 88 02 	call	0x510	; 0x510 <init_buttons>
-	OLED_init();		//Init OLED
+	OLED_init();		//Initializing OLED
      58c:	0e 94 9e 03 	call	0x73c	; 0x73c <OLED_init>
-	can_init();
+	can_init();			//Initializing CAN BUS
      590:	0e 94 80 00 	call	0x100	; 0x100 <can_init>
-	INT_init();
+	INT_init();			//Initializing Interrupts
      594:	0e 94 1b 01 	call	0x236	; 0x236 <INT_init>
      598:	0f 90       	pop	r0
      59a:	0f 90       	pop	r0
-		//joystick_test();
-		//menu_display_switch();
+		//joystick_test();			//Testing joystick and buttons
+		//menu_display_switch();	//Testing display
 
-		
+		//CAN message to be sent to node 2
 		can_message can_msg;
-		can_msg.id = 100; //ID of Arduino
+		can_msg.id = 100;			//ID of Arduino
      59c:	84 e6       	ldi	r24, 0x64	; 100
      59e:	90 e0       	ldi	r25, 0x00	; 0
      5a0:	9a 83       	std	Y+2, r25	; 0x02
      5a2:	89 83       	std	Y+1, r24	; 0x01
-		can_msg.data_length = 3; //Data Length
+		can_msg.data_length = 3;	//Data Length
      5a4:	83 e0       	ldi	r24, 0x03	; 3
      5a6:	8b 83       	std	Y+3, r24	; 0x03
-		can_msg.data[0] = get_X_pos();
+		can_msg.data[0] = get_X_pos();	//Joystick X Position, to control servo
      5a8:	0e 94 7c 01 	call	0x2f8	; 0x2f8 <get_X_pos>
      5ac:	f8 2e       	mov	r15, r24
      5ae:	8c 83       	std	Y+4, r24	; 0x04
-		can_msg.data[1] = get_Y_pos();
+		can_msg.data[1] = get_Y_pos();	//Joystick Y Position, to control motor
      5b0:	0e 94 02 02 	call	0x404	; 0x404 <get_Y_pos>
      5b4:	08 2f       	mov	r16, r24
      5b6:	8d 83       	std	Y+5, r24	; 0x05
-		can_msg.data[2] = read_touch_button_r();
+		can_msg.data[2] = read_touch_button_r();	//Right touch button, to control solenoid
      5b8:	0e 94 a8 02 	call	0x550	; 0x550 <read_touch_button_r>
      5bc:	18 2f       	mov	r17, r24
      5be:	8e 83       	std	Y+6, r24	; 0x06
@@ -1030,7 +1028,7 @@ int main(void)
 
 
 uint8_t mcp2515_init (void){
-	uint8_t value, ctrlreg ;
+	uint8_t value ;
 	SPI_init() ; // Initialize SPI
      6ea:	0e 94 e9 03 	call	0x7d2	; 0x7d2 <SPI_init>
 	mcp2515_reset() ; // Send reset - command

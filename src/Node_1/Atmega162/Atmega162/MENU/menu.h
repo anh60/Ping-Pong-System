@@ -2,8 +2,11 @@
  * menu.h
  *
  * Created: 05.10.2022 12:43:42
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef MENU_H_

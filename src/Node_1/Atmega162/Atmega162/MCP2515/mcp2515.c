@@ -2,8 +2,12 @@
  * mcp2515.c
  *
  * Created: 12.10.2022 13:55:25
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
+
 #include "mcp2515.h"
 #include "../SPI/spi.h"
 
@@ -70,7 +74,7 @@ uint8_t mcp2515_read_status(){
 
 
 uint8_t mcp2515_init (void){
-	uint8_t value, ctrlreg ;
+	uint8_t value ;
 	SPI_init() ; // Initialize SPI
 	mcp2515_reset() ; // Send reset - command
 	// Self - test
