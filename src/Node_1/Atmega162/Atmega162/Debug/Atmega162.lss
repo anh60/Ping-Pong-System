@@ -1179,10 +1179,9 @@ void SPI_init(void){
      7d2:	80 eb       	ldi	r24, 0xB0	; 176
      7d4:	87 bb       	out	0x17, r24	; 23
 	/* Enable SPI, Master, set clock rate fck/16 */
-	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
+	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);	/* Set SPI Mode = 0 (CPOL=0, CPHA=0) */
      7d6:	81 e5       	ldi	r24, 0x51	; 81
      7d8:	8d b9       	out	0x0d, r24	; 13
-	/* Set SPI Mode = 0 (CPOL=0, CPHA=0) */
 	SPCR &= ~(1<<CPOL)| ~(1<<CPHA);
      7da:	8d b1       	in	r24, 0x0d	; 13
      7dc:	8d b9       	out	0x0d, r24	; 13
@@ -1196,20 +1195,19 @@ void SPI_send(uint8_t data){
 	SPDR = data;
      7e0:	8f b9       	out	0x0f, r24	; 15
 	/* Wait for transmission complete */
-	while(!(SPSR & (1<<SPIF)))
+	while(!(SPSR & (1<<SPIF)));
      7e2:	77 9b       	sbis	0x0e, 7	; 14
      7e4:	fe cf       	rjmp	.-4      	; 0x7e2 <SPI_send+0x2>
-	;
 }
      7e6:	08 95       	ret
 
 000007e8 <SPI_read>:
-
+	
 uint8_t SPI_read(void){
-	SPI_send(0xAA); //Send dummy data
+	SPI_send(0xAA); //Send dummy data	
      7e8:	8a ea       	ldi	r24, 0xAA	; 170
      7ea:	0e 94 f0 03 	call	0x7e0	; 0x7e0 <SPI_send>
-	//Read data left in the SPI data register
+	//Read data left in the SPI data register	
 	return SPDR;
      7ee:	8f b1       	in	r24, 0x0f	; 15
 }
