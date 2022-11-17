@@ -8,8 +8,8 @@
  *	Marcus Tjomsaas
  */
 
-#include "spi.h"
-/* Init procedure. Partially taken from datasheet */void SPI_init(void){	/* Set SSn, MOSI and SCK as output, all others input */
+#include "spi.h"/* Init procedure. Partially taken from datasheet */void SPI_init(void){
+	/* Set SSn, MOSI and SCK as output, all others input */
 	DDRB = (1<<DDB4)|(1<<DDB5)|(1<<DDB7);
 	/* Enable SPI, Master, set clock rate fck/16 */
 	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);	/* Set SPI Mode = 0 (CPOL=0, CPHA=0) */
