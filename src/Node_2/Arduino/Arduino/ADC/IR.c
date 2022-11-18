@@ -2,10 +2,15 @@
  * IR.c
  *
  * Created: 13.11.2022 16:46:27
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
+
 #include <sam.h>
 #include "ir.h"
+#include "../ADC/adc.h"
 #define TH 1650 //ADC value
 
 // Return 0 when not blocked

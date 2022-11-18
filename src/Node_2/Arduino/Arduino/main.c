@@ -2,8 +2,11 @@
  * Arduino.c
  *
  * Created: 19.10.2022 14:33:10
- * Author : deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #include "sam.h"

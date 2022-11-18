@@ -2,8 +2,11 @@
  * can_message.c
  *
  * Created: 02.11.2022 16:13:11
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #include "stdio.h"

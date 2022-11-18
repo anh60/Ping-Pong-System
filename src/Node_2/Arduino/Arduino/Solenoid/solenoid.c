@@ -2,8 +2,11 @@
  * solenoid.c
  *
  * Created: 16.11.2022 16:16:24
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 #include <sam.h>
 #include "solenoid.h"

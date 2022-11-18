@@ -48,7 +48,7 @@ int main(void)
 		can_msg.data_length = 3;	//Data Length
 		can_msg.data[0] = get_X_pos();	//Joystick X Position, to control servo
 		can_msg.data[1] = get_Y_pos();	//Joystick Y Position, to control motor
-		can_msg.data[2] = read_touch_button_r();	//Right touch button, to control solenoid
+		can_msg.data[2] = read_js_button();	//Right touch button, to control solenoid
 		
 		printf("DATA POS X = %d;\n\r", can_msg.data[0]);
 		printf("DATA POS Y = %d;\n\r", can_msg.data[1]);

@@ -2,8 +2,11 @@
  * ADC.c
  *
  * Created: 13.11.2022 16:51:13
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 #include <sam.h>
 #include "adc.h"

@@ -2,7 +2,10 @@
  * game.c
  *
  * Created: 16.11.2022 10:18:15
- *  Author: deaguiar
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
  */ 
 
 #include <sam.h>

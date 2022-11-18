@@ -2,7 +2,10 @@
  * pwm.h
  *
  * Created: 02.11.2022 12:14:16
- *  Author: deaguiar
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
  */ 
 
 

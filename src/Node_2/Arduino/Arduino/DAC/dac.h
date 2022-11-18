@@ -2,8 +2,11 @@
  * adc.h
  *
  * Created: 13.11.2022 17:20:34
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef DAC_H_

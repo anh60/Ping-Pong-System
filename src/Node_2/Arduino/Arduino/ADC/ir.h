@@ -2,8 +2,11 @@
  * ir.h
  *
  * Created: 13.11.2022 19:07:24
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef IR_H_

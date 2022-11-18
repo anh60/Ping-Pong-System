@@ -2,8 +2,11 @@
  * solenoid.h
  *
  * Created: 16.11.2022 16:16:36
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef SOLENOID_H_

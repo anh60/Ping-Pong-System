@@ -2,8 +2,11 @@
  * can_message.h
  *
  * Created: 02.11.2022 16:17:34
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef CAN_MESSAGE_H_

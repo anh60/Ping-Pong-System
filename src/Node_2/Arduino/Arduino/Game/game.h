@@ -2,8 +2,11 @@
  * game.h
  *
  * Created: 16.11.2022 10:18:25
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
 
 
 #ifndef GAME_H_

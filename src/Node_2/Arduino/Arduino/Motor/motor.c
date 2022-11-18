@@ -2,7 +2,10 @@
  * motor.c
  *
  * Created: 13.11.2022 21:27:00
- *  Author: deaguiar
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
  */ 
 
 #include <sam.h>
@@ -152,51 +155,6 @@ void init_encoder(void){
 	printf("END INTIALIZTION ...............\n\r");
 }
 
-void pid_update(int16_t target){
-		int16_t current_encoder = read_encoder();
-		int16_t target_encoder = target;
-		int16_t error = target_encoder - current_encoder;
-		static int16_t prev_error1 = 0;
-		static int16_t prev_error2 = 0;
-		
-		
-		static int32_t m = 0;
-		static int32_t m_prev = 0;
-		int32_t m_max = 2200;
-		int32_t m_min = -2200;
-
-		double kp = 3.0; //26
-		double ki = 0.0;//0.015;
-		double kd = 0.0;//0.01;
-		
-		
-		error = target_encoder -  read_encoder();
-		printf("Erro %d\n\r", error);
-		
-		m = m_prev + kp*(error-prev_error1) + ki*(error+prev_error1)/2 + kd*(error-(2*prev_error1)+prev_error2);
-		
-		if(m >  m_max) m = m_max;
-		if(m <  m_min) m = m_min;
-		if(m > 0){
-		
-			dac_convert(m);
-					printf("M %d\n\r", m);
-
-
-		}
-		else if (m < 0){
-			dac_convert(-m);
-		printf("M %d\n\r", -m);
-
-		}
-		//Reseting counter
-		/*PIOD->PIO_CODR |= PIO_PER_P1;
-		for(uint8_t i=0 ; i < 100; i++);
-		PIOD->PIO_SODR |= PIO_PER_P1; */
-		m_prev = m;
-		prev_error1 = error;
-		prev_error2 = prev_error1;
-}
 
 void closed_loop(void){
 	const int16_t threshold = 120;
@@ -216,8 +174,8 @@ void closed_loop(void){
 			PIOD->PIO_CODR |= PIO_PER_P10; //Direction left
 		}
 		
-	double kp = 0.559;
-	double ki = 0.01;
+	double kp = 0.65;
+	double ki = 0.015;
 	int16_t proportional = kp* error; 
 	int16_t integrator = prev_integrator + (ki*(error + prev_error))/2 ;
 

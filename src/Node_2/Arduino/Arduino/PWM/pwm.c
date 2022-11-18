@@ -2,8 +2,12 @@
  * pwm.c
  *
  * Created: 02.11.2022 12:14:07
- *  Author: deaguiar
- */ 
+ * Author :
+ *	Andreas Holleland
+ *	Daniel Guarecuco
+ *	Marcus Tjomsaas
+ */
+
 #include <stdint.h>
 
 #include "sam.h"
